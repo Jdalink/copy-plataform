@@ -1,0 +1,64 @@
+/* components/ui/custom-calendar.css */
+
+/* Estilo base para el contenedor del calendario */
+.react-calendar-custom {
+  @apply bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg p-2 shadow-lg;
+  width: 350px; /* Ancho máximo reducido */
+  max-width: 100%; /* Asegura que se ajuste en pantallas pequeñas */
+}
+
+/* En pantallas pequeñas, haz que el calendario ocupe todo el ancho disponible */
+@media (max-width: 480px) {
+  .react-calendar-custom {
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+/* Estilos para la navegación (mes y año) */
+.react-calendar-custom .react-calendar__navigation button {
+  @apply text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md;
+  min-width: 40px; /* Reducido */
+  font-size: 0.9rem; /* Reducido */
+}
+
+.react-calendar-custom .react-calendar__navigation__label {
+  @apply text-gray-900 dark:text-white font-bold;
+}
+
+/* Estilos para los días de la semana */
+.react-calendar-custom .react-calendar__month-view__weekdays__weekday {
+  @apply text-center text-sm font-semibold text-gray-600 dark:text-gray-400 p-2;
+}
+
+/* Estilos para las baldosas (días) */
+.react-calendar-custom .react-calendar__tile {
+  @apply text-center text-xs p-1.5 rounded-md transition-colors; /* Reducido */
+  @apply text-gray-800 dark:text-gray-200;
+  max-width: none; /* Asegura que el día ocupe todo el espacio */
+}
+
+/* Día al pasar el cursor */
+.react-calendar-custom .react-calendar__tile:enabled:hover,
+.react-calendar-custom .react-calendar__tile:enabled:focus {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+/* Día seleccionado */
+.react-calendar-custom .react-calendar__tile--active {
+  @apply bg-primary text-primary-foreground dark:bg-primary dark:text-primary-foreground;
+}
+.react-calendar-custom .react-calendar__tile--active:enabled:hover,
+.react-calendar-custom .react-calendar__tile--active:enabled:focus {
+  @apply bg-primary/90;
+}
+
+/* Día de hoy */
+.react-calendar-custom .react-calendar__tile--now {
+  @apply bg-gray-100 dark:bg-gray-900 font-bold;
+}
+
+/* Días fuera del mes actual */
+.react-calendar-custom .react-calendar__month-view__days__day--neighboringMonth {
+  @apply text-gray-400 dark:text-gray-500;
+}
